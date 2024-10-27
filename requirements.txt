@@ -1,6 +1,6 @@
 blinker @ file:///C:/Users/dev-admin/perseverance-python-buildout/croot/blinker_1699474692786/work
 Brotli @ file:///C:/b/abs_3d36mno480/croot/brotli-split_1714483178642/work
-certifi @ file:///home/conda/feedstock_root/build_artifacts/certifi_1725278078093/work/certifi
+certifi @ file:///C:/b/abs_1fw_exq1si/croot/certifi_1725551736618/work/certifi
 charset-normalizer @ file:///croot/charset-normalizer_1721748349566/work
 click @ file:///C:/Users/dev-admin/perseverance-python-buildout/croot/click_1699473800648/work
 colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1666700638685/work
