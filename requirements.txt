@@ -1,5 +1,4 @@
 blinker==1.6.2
-brotli==1.0.9  # 変更
 bzip2==1.0.8
 ca-certificates==2024.9.24
 cairo==1.16.0
