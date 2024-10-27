@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gorogoro App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background-color: #170301; /* こげ茶色 */
+            background-image: url('{{ url_for('static', filename='IMG20241016182534.jpg') }}');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: contain; /* または cover に変更可能 */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">ごロゴろ マウスピース</h1>
+        <form action="/" method="POST" enctype="multipart/form-data" class="upload-form">
+            <label class="file-label" id="file-label">
+                マウスピース画像を選択
+                <input type="file" name="image" accept="image/*" required class="file-input" id="file-input">
+            </label>
+            <button type="submit" class="submit-btn">画像をアップロード</button>
+        </form>
+    </div>
+    <script>
+        const fileInput = document.getElementById('file-input');
+        const fileLabel = document.getElementById('file-label');  // ラベル要素を取得
+
+        fileInput.addEventListener('change', function() {
+            const fileName = fileInput.files[0] ? fileInput.files[0].name : 'なし';
+            // ファイル名にラベルのテキストを変更
+            fileLabel.childNodes[0].textContent = fileName; 
+        });
+    </script>
+    </body>
+</html>

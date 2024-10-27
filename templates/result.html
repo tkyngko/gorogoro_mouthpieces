@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>推論結果</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4; /* 背景色 */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .result-container {
+            background-color: rgba(255, 255, 255, 0.9); /* 背景を少し透過して明るくする */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 800px; /* 最大幅を設定 */
+            width: 100%;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%; /* 幅を100%に制限 */
+            max-height: 400px; /* 最大の高さを400pxに設定 */
+            height: auto; /* 高さを自動で調整 */
+            border-radius: 10px; /* 画像に丸みをつける */
+            margin: 10px 0; /* 画像の上下にスペースを追加 */
+        }
+
+        .button-container {
+            margin-top: 20px; /* ボタンの上にスペースを追加 */
+        }
+
+        a, button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #444;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            border: none; /* ボタンの枠をなくす */
+            cursor: pointer; /* カーソルをポインタに */
+            font-size: 16px; /* ここでボタンの文字の大きさを指定 */
+        }
+
+        a:hover, button:hover {
+            background-color: #666;
+        }
+
+        .hidden {
+            display: none; /* 画像を非表示にするためのクラス */
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>推論結果</h1>
+        <h2>ラベル: {{ gorogoroName }}</h2>
+
+        <h3>元の画像</h3>
+        <img src="{{ original_image }}" alt="元の画像">
+
+        <h3 id="segmented-title" class="hidden">背景処理された画像</h3> <!-- 背景処理された画像のタイトルを初期状態で非表示にする -->
+        <img id="segmented-image" class="hidden" src="{{ segmented_image }}" alt="背景処理された画像"> <!-- 初期状態で非表示 -->
+
+        <div class="button-container">
+            <button id="show-image-btn">背景処理された画像を表示</button> <!-- 画像表示用ボタン -->
+            <a href="/">戻る</a>
+        </div>
+    </div>
+
+    <script>
+        // ボタンと画像の要素を取得
+        const showImageBtn = document.getElementById('show-image-btn');
+        const segmentedImage = document.getElementById('segmented-image');
+        const segmentedTitle = document.getElementById('segmented-title');
+
+        // ボタンがクリックされたときのイベントリスナー
+        showImageBtn.addEventListener('click', function() {
+            segmentedImage.classList.toggle('hidden'); // hiddenクラスをトグル（追加/削除）する
+            segmentedTitle.classList.toggle('hidden'); // タイトルのhiddenクラスをトグル
+
+            // ボタンのテキストを切り替える
+            if (segmentedImage.classList.contains('hidden')) {
+                showImageBtn.textContent = '背景処理された画像を表示'; // 非表示の場合のテキスト
+            } else {
+                showImageBtn.textContent = '背景処理された画像を非表示'; // 表示中の場合のテキスト
+            }
+        });
+    </script>
+</body>
+</html>
