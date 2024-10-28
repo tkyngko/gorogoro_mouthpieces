@@ -15,5 +15,5 @@ torchvision==0.19.1
 ultralytics==8.3.23
 ultralytics-thop==2.0.9
 yaml==0.2.5
-
+opencv-python==4.10.0
 
