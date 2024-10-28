@@ -3,7 +3,6 @@ brotli==1.0.9
 flask==3.0.3
 pillow==10.4.0
 numpy==1.26.4
-opencv==4.10.0
 pandas==2.2.3
 pillow==10.4.0
 pip==24.2
